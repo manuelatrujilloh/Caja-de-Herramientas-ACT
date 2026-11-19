@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Caja de Herramientas Flexibilidad Psicológica</title>
+<style>
+:root{--bg:#faf8f5;--surface:#fff;--text:#222;--muted:#666;--border:#e6e1da;
+--d:#7c5cff;--y:#2f86d6;--a:#e5484d;--r:#2f9e63;--v:#d98a00;--c:#d6498a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17161a;--surface:#222127;--text:#f1eff4;--muted:#a9a6b2;--border:#34323b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17161a;--surface:#222127;--text:#f1eff4;--muted:#a9a6b2;--border:#34323b;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+main{max-width:1000px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:1.7rem;margin:0 0 4px;line-height:1.2}
+.sub{margin:0 0 6px;color:var(--muted)}
+.refs{font-size:.78rem;color:var(--muted);margin:0 0 20px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chip{border:2px solid var(--col,var(--text));background:transparent;color:var(--text);padding:6px 12px;border-radius:999px;font:inherit;font-size:.88rem;cursor:pointer}
+.chip.on{background:var(--col,var(--text));color:#fff}
+.chip.all.on{color:var(--bg)}
+.rand{margin-left:auto;border:0;background:var(--text);color:var(--bg);padding:8px 16px;border-radius:999px;font:inherit;font-weight:600;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.card{background:var(--col);color:#fff;border:0;border-radius:16px;padding:16px;min-height:150px;text-align:left;font:inherit;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 2px 8px rgba(0,0,0,.12);transition:transform .15s}
+.card:hover{transform:translateY(-3px) rotate(-.6deg)}
+.tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;opacity:.92}
+.t{font-size:1.1rem;font-weight:700;line-height:1.25}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.overlay.open{display:flex}
+.wrap{width:100%;max-width:440px}
+.scene{perspective:1200px;height:min(480px,72vh)}
+.flip{position:relative;width:100%;height:100%;transition:transform .55s;transform-style:preserve-3d;cursor:pointer}
+.flip.back{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:20px;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:24px;overflow:auto}
+.front{background:var(--col);color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.front .t{font-size:1.9rem}
+.front .hint{font-size:.85rem;opacity:.9}
+.rev{background:var(--surface);color:var(--text);border-top:10px solid var(--col);transform:rotateY(180deg)}
+.rev h2{margin:2px 0 8px;font-size:1.2rem}
+.rev .tag{color:var(--col);font-weight:700;opacity:1}
+.rev p{margin:0 0 8px}
+.rev ol{padding-left:20px;margin:8px 0}
+.rev li{margin-bottom:6px}
+.note{font-size:.82rem;color:var(--muted);border-top:1px solid var(--border);padding-top:8px;margin-top:10px}
+.ctl{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.ctl button{border:0;border-radius:999px;padding:9px 18px;font:inherit;font-weight:600;cursor:pointer;background:var(--surface);color:var(--text)}
+.bib{margin-top:40px;border-top:1px solid var(--border);padding-top:16px}
+.bib h2{font-size:1.1rem;margin:0 0 10px}
+.bib p{font-size:.82rem;color:var(--muted);margin:0 0 8px;padding-left:2em;text-indent:-2em;overflow-wrap:anywhere}
+.bib a{color:inherit}
+footer{margin-top:24px;color:var(--muted);font-size:.8rem}
+</style>
+</head>
+<body>
+<main>
+<h1>Caja de Herramientas Flexibilidad Psicológica</h1>
+<p class="sub">Basado en Terapia de Aceptación y Compromiso. Hayes (2020) <em>Una mente liberada</em>.</p>
+<p class="refs">Ejercicios adicionales (✚) tomados de: Harris (2021); Hayes et al. (2012); Hayes, Strosahl, et al. (1999); Titchener (1916); Wilson et al. (2010). Evidencia citada: Crocker et al. (2008); Hayes, Bissett, et al. (1999); Healy et al. (2008); Masuda et al. (2004); McMullen et al. (2008). Referencias completas al final.</p>
+<div class="bar" id="bar"></div>
+<div class="grid" id="grid"></div>
+<section class="bib">
+<h2>Referencias</h2>
+<p>Crocker, J., Niiya, Y., y Mischkowski, D. (2008). Why does writing about important values reduce defensiveness? Self-affirmation and the role of positive other-directed feelings. <em>Psychological Science, 19</em>, 740–747.</p>
+<p>Harris, R. (2021). <em>Hazlo simple: Una guía de iniciación a los conceptos básicos de la ACT (terapia de aceptación y de compromiso) y muchas más cosas</em> (M. Manzano, Trad.). Ediciones Obelisco. (Obra original publicada en 2019). <a href="https://nirvanalibros.mx/wp-content/uploads/2021/07/Hazlo-simple.pdf" target="_blank" rel="noopener">https://nirvanalibros.mx/wp-content/uploads/2021/07/Hazlo-simple.pdf</a></p>
+<p>Hayes, S. C. (2020). <em>Una mente liberada</em>.</p>
+<p>Hayes, S. C., Bissett, R., Korn, Z., Zettle, R. D., Rosenfarb, I., Cooper, L., y Grundt, A. (1999). The impact of acceptance versus control rationales on pain tolerance. <em>The Psychological Record, 49</em>, 33–47.</p>
+<p>Hayes, S. C., Strosahl, K. D., y Wilson, K. G. (1999). <em>Acceptance and commitment therapy: An experiential approach to behavior change</em>. Guilford Press.</p>
+<p>Hayes, S. C., Strosahl, K. D., y Wilson, K. G. (2012). <em>Acceptance and commitment therapy: The process and practice of mindful change</em> (2.ª ed.). Guilford Press.</p>
+<p>Healy, H.-A., Barnes-Holmes, Y., Barnes-Holmes, D., Keogh, C., Luciano, C., y Wilson, K. (2008). An experimental test of a cognitive defusion exercise: Coping with negative and positive self-statements. <em>The Psychological Record, 58</em>, 623–640. <a href="https://doi.org/10.1007/BF03395641" target="_blank" rel="noopener">https://doi.org/10.1007/BF03395641</a></p>
+<p>Masuda, A., Hayes, S. C., Sackett, C. F., y Twohig, M. P. (2004). Cognitive defusion and self-relevant negative thoughts: Examining the impact of a ninety year old technique. <em>Behaviour Research and Therapy, 42</em>, 477–485.</p>
+<p>McMullen, J., Barnes-Holmes, D., Barnes-Holmes, Y., Stewart, I., Luciano, C., y Cochrane, A. (2008). Acceptance versus distraction: Brief instructions, metaphors and exercises in increasing tolerance for self-delivered electric shocks. <em>Behaviour Research and Therapy, 46</em>(1), 122–129. <a href="https://research.universityofgalway.ie/en/publications/acceptance-versus-distraction-brief-instructions-metaphors-and-ex-2/" target="_blank" rel="noopener">https://research.universityofgalway.ie/en/publications/acceptance-versus-distraction-brief-instructions-metaphors-and-ex-2/</a></p>
+<p>Titchener, E. B. (1916). <em>A text-book of psychology</em>. Macmillan.</p>
+<p>Wilson, K. G., Sandoz, E. K., Kitchens, J., y Roberts, M. (2010). The Valued Living Questionnaire: Defining and measuring valued action within a behavioral framework. <em>The Psychological Record, 60</em>(2), 249–272. <a href="https://doi.org/10.1007/BF03395706" target="_blank" rel="noopener">https://doi.org/10.1007/BF03395706</a></p>
+</section>
+<footer>Material de apoyo para el trabajo con ACT. No reemplaza un proceso terapéutico.</footer>
+</main>
+<div class="overlay" id="ov"><div class="wrap"><div class="scene"><div class="flip" id="flip"><div class="face front" id="fr"></div><div class="face rev" id="rv"></div></div></div><div class="ctl"><button id="rnd">🎲 Otra al azar</button><button id="cl">Cerrar</button></div></div></div>
+<script>
+const P={d:["Defusión","var(--d)"],y:["Toma de perspectiva","var(--y)"],a:["Aceptación","var(--a)"],r:["Presencia","var(--r)"],v:["Valores","var(--v)"],c:["Acción comprometida","var(--c)"]};
+// [proceso, título, introducción, pasos, extra(1=adicional), nota]
+const C=[
+["d","Desobedece deliberadamente","Un pensamiento como “no puedo” no es una orden. Se empieza por aquí, aunque parezca absurdo.",["Elige una acción simple: levantar la mano o caminar por la habitación.","Di en voz alta “no puedo levantar mi mano” mientras la levantas.","Repite con otra acción y nota que pensar y hacer son cosas distintas."],0,"Evidencia: en un estudio de un equipo irlandés (Maynooth), el protocolo de aceptación completo, con este ejercicio y una metáfora, aumentó la tolerancia a descargas eléctricas; Hayes (2020) cita un aumento del 40 % (McMullen et al., 2008)."],
+["d","Ponle nombre a tu mente y escúchala con educación","Nombrar a la mente crea distancia: tú escuchas al personaje, no te fundes con él.",["Elige un nombre, como “la Crítica” o “Don Preocupón”.","Cuando aparezca un pensamiento duro, salúdalo: “Hola, Don Preocupón, te escucho”.","Escúchalo con cortesía, sin obedecerlo ni discutirle, y sigue con lo que estabas haciendo."]],
+["d","Agradécele a tu mente lo que intenta hacer por ti","La mente suele alertarte para protegerte. Puedes reconocer la intención sin seguir el consejo.",["Detecta un pensamiento que te frena.","Dite: “Gracias, mente, por intentar cuidarme”.","Pregúntate qué quieres hacer ahora que te importe, y hazlo."]],
+["d","Dilo cantando","Cantar un pensamiento cambia su tono y le quita solemnidad.",["Toma un pensamiento difícil, como “no soy suficiente”.","Cántalo con una melodía conocida, por ejemplo la de “Cumpleaños feliz”.","Repítelo dos o tres veces y nota qué pasa con su peso emocional."]],
+["d","Del revés","Cuando se le da vuelta, una palabra o frase pierde su poder de impacto.",["Escoge una palabra o pensamiento difícil.","Léelo de atrás hacia adelante, letra por letra o palabra por palabra.","Nota que son solo sonidos y formas en un orden determinado."]],
+["d","Míralo como si fuera un objeto","Observar un pensamiento o emoción como algo externo permite verlo en vez de ser arrastrado por él.",["Lleva la atención a lo que sientes o piensas.","Imagina su tamaño, color, forma, textura y movimiento.","Ponlo frente a ti como un objeto y obsérvalo con curiosidad."]],
+["d","Una voz diferente","El mismo pensamiento suena distinto con otra voz, y eso muestra que son palabras.",["Elige un pensamiento molesto.","Dilo en voz alta con voz de personaje de caricatura, robot o locutor deportivo.","Nota qué cambia en la forma en que lo escuchas."]],
+["d","Llévalo contigo","No hace falta eliminar un pensamiento para vivir con él. Puedes cargarlo mientras haces lo que importa.",["Escribe el pensamiento en una hoja.","Dóblala y guárdala en un bolsillo o en la billetera.","Durante el día recuerda que la llevas contigo y sigue con tus actividades."]],
+["d","El niño pequeño","Es una defusión compasiva: mirarte con la ternura que tendrías hacia un niño.",["Imagina a la persona que eras de pequeño o pequeña.","Piensa en lo que sentías y en lo que necesitabas oír.","Dile esas palabras y dale un abrazo, o abrázate tú mismo."]],
+["d","Leche, leche, leche","Repetir una palabra muchas veces hace que pierda significado y quede solo el sonido.",["Elige una palabra con carga negativa, o una cualquiera como “leche”.","Repítela en voz alta y rápido durante unos 45 segundos.","Nota cómo el significado se desdibuja y quedan solo sonidos."],1,"Técnica descrita por Titchener (1916) y estudiada por Masuda et al. (2004)."],
+["d","Hojas en el río","Los pensamientos van y vienen; no hace falta detenerlos para seguir adelante.",["Imagina un arroyo con hojas flotando en la superficie.","Pon cada pensamiento sobre una hoja y deja que se vaya con la corriente.","Si te distraes o te enganchas, nota y vuelve a la imagen."],1,"Ejercicio clásico de ACT (Harris, 2021; Hayes et al., 2012)."],
+["y","Soy / No soy","Las etiquetas sobre ti mismo parecen verdades, pero ninguna dura siempre.",["En una hoja escribe “Soy…” y completa con adjetivos buenos y malos que te aplicas.","Junto a cada uno pregúntate: ¿soy así siempre, en todo momento y lugar?","Nota quién es la persona que observa todas esas etiquetas."]],
+["y","Reescribir la historia","Todos nos contamos una historia sobre nuestra vida, y es una versión entre muchas posibles.",["Escribe en pocas líneas la historia que sueles contarte sobre ti.","Reescríbela empezando por: “Hay una historia que dice que…”.","Subraya las partes que te sirven y las que quieres sostener con menos fuerza."]],
+["y","La diferencia entre la conciencia y el contenido de la conciencia","Hay una parte tuya que observa pensamientos, emociones y sensaciones, y que no cambia con ellos.",["Cierra los ojos y nombra lo que ocurre: un pensamiento, una emoción, una sensación.","Pregúntate: ¿quién está notando todo esto?","Nota que el contenido cambia, mientras el observador permanece."]],
+["y","Aplicar la toma de perspectiva a la aceptación","Aceptar es más fácil desde la perspectiva de quien observa.",["Elige una emoción incómoda y ubícala en el cuerpo.","Dite: “Hay una emoción de [nombre] y yo soy quien la nota”.","Siente que eres más amplio que la emoción y déjale espacio."]],
+["y","El tablero de ajedrez","Tú no eres ninguna de las piezas en pugna: eres el tablero que las sostiene.",["Imagina un tablero con piezas blancas (pensamientos agradables) y negras (difíciles).","Nota cómo cada bando lucha por ganar, sin éxito definitivo.","Recuerda que puedes ser el tablero: sostienes todas las piezas sin pelear."],1,"Metáfora de Hayes et al. (2012)."],
+["a","Di que sí","Decir “sí” no es resignarse ni que te guste: es reconocer lo que ya está.",["Piensa en una emoción o situación que hoy no puedes cambiar.","Di “sí” a lo que hay, en voz alta o por dentro.","Elige desde ahí la siguiente acción que te importe."]],
+["a","Un ejercicio de afecto","Se trata de acoger una emoción difícil con una actitud amable en lugar de pelear con ella.",["Elige una emoción difícil y ubícala en el cuerpo.","Obsérvala como si fuera una flor delicada, o abrázala como a un niño, o mírala como un cuadro extraordinario.","Quédate unos minutos sin intentar cambiarla."]],
+["a","Tira y afloja con el monstruo","Cuanto más se tira de la cuerda, más tira el monstruo; la salida es soltarla.",["Imagina un foso profundo entre tú y un monstruo, ambos sosteniendo una cuerda.","Nota que mientras más tiras, más fuerte tira él.","Suelta la cuerda: el monstruo sigue ahí, pero ya no estás en la lucha."],1,"Metáfora de ACT (Harris, 2021; Hayes et al., 2012)."],
+["a","La trampa china para los dedos","A veces, la salida no es tirar más fuerte sino aflojar.",["Si tienes una, mete un dedo en cada extremo; si no, imagínala.","Tira hacia fuera y nota cómo se aprieta.","Al empujar suavemente hacia dentro hay espacio para salir."],1,"Metáfora de Hayes et al. (2012)."],
+["a","El invitado indeseado","Das una fiesta y llega alguien que no querías ver. Puedes quedarte en la puerta peleando con él, o dejarlo entrar y seguir atendiendo a los demás.",["Imagina una fiesta importante para ti y un invitado indeseado: tus pensamientos o emociones difíciles.","Puedes bloquearle la puerta, pero entonces te pierdes la fiesta y él sigue empujando.","Prueba dejarlo entrar: no tiene que gustarte, solo permitirle estar mientras atiendes a lo que te importa."],1,"Metáfora de Hayes, Strosahl, et al. (1999)."],
+["r","Meditación sencilla","Una práctica breve para estar presente sin esforzarte en dejar la mente en blanco.",["Siéntate cómodo y entrecierra los ojos.","Centra la atención en tu respiración.","Cuando lleguen pensamientos, nótalos, deja que pasen y vuelve a respirar. Prueba 3 a 5 minutos."]],
+["r","Objetivos atencionales únicos y múltiples","Entrena dirigir la atención a una sola cosa y luego a varias, con un temporizador.",["Pon un temporizador de 5 minutos.","Minuto 1: solo la planta del pie izquierdo (contacto, temperatura, presión). Minuto 2: solo el derecho.","Minuto 3: ambos pies a la vez. Minutos 4 y 5: abre a las sensaciones de todo el cuerpo.","Cada vez que te distraigas, nota a dónde fuiste y vuelve al objetivo."]],
+["r","Atención amplia y estrecha","Escuchar una canción permite practicar cómo se enfoca y se amplía la atención.",["Elige una canción con varios instrumentos.","Primera escucha: sigue un solo instrumento.","Segunda escucha: abre la atención a todos a la vez. Alterna ambos modos."]],
+["r","Abrir el foco","Pasar de un detalle al panorama completo ayuda a salir del modo piloto automático.",["Escoge un objeto y obsérvalo con atención estrecha.","Abre el foco hacia todo tu entorno: colores, sonidos, olores.","Incluye tus pensamientos y emociones como parte del campo, sin seguirlos."]],
+["v","Escribir sobre los valores","Escribir clarifica qué quieres para tu vida y suele disminuir la actitud defensiva.",["Elige un área de tu vida: familia, pareja, amistades, trabajo, salud, aprendizaje, ocio o comunidad.","Escribe 10 minutos sobre por qué te importa y qué tipo de persona quieres ser ahí.","Repite en otra área otro día."],0,"La escritura sobre valores se ha estudiado en Crocker et al. (2008)."],
+["v","Transformar dolor en propósito","El dolor suele señalar algo que nos importa mucho.",["Piensa en un dolor que te acompaña.","Pregúntate: ¿qué dice esto de lo que me importa?","Escribe el valor que aparece y una acción que lo honre."]],
+["v","La lápida","Imaginar tu epitafio ayuda a ver qué quieres que represente tu vida.",["Imagina tu lápida o lo que dirían en tu despedida las personas que más quieres.","Escribe una a tres frases sobre lo que te gustaría que dijeran.","Pregúntate: ¿qué hago hoy que se parezca a eso?"]],
+["v","Importancia y coherencia","Comparar cuánto te importa cada área con cuánto la viviste esta semana muestra dónde tu vida se aleja de tus valores.",["Elige cinco o más áreas: familia, pareja, amistades, trabajo, salud, ocio, comunidad.","Puntúa de 1 a 10 qué tan importante es cada una y qué tan coherente fue tu semana con ella.","Mira las brechas más grandes y elige una acción pequeña para acercarte esta semana."],1,"Adaptado del Valued Living Questionnaire (Wilson et al., 2010)."],
+["c","Pequeños cambios","La acción comprometida empieza con pasos pequeños y repetibles.",["Elige un valor para esta semana.","Define una acción mínima, de 2 minutos.","Decide cuándo y dónde la harás, y hazla aunque aparezca incomodidad."]],
+["c","Hábitos nuevos en rutinas consolidadas","Pegar un hábito nuevo a una rutina que ya existe lo hace más fácil de sostener.",["Escoge una rutina fija, como el café de la mañana.","Agrega justo después un hábito nuevo y pequeño ligado a un valor.","Repítelo durante dos semanas antes de ampliarlo."]],
+["c","Brújula inversa","Si la mente empuja a evitar, la brújula de los valores puede señalar en sentido contrario.",["Nota hacia dónde te empuja hoy la evitación.","Pregúntate: ¿y si fuera en la dirección contraria, la que me importa?","Da un paso pequeño en esa dirección."]],
+["c","Practica “porque sí”","Algunas acciones valiosas se hacen sin esperar ganas ni razones convincentes.",["Elige una acción que honre un valor.","No negocies con tu mente: dite “lo hago porque sí, porque me importa”.","Hazla y nota cómo se siente actuar sin esperar motivación."]],
+["c","Nadie es una isla","Los hábitos se sostienen mejor con otras personas.",["Haz una lista de personas con quienes podrías crear ese hábito.","Elige una y cuéntale qué quieres hacer y por qué.","Acuerden una acción concreta y una fecha para hacerla juntos."]],
+["c","Pasajeros del autobús","Tú conduces hacia lo que valoras, aunque los pasajeros ruidosos vayan a bordo.",["Imagina que conduces un autobús con pasajeros: tus pensamientos y emociones difíciles.","Algunos te gritan que cambies de ruta; puedes discutir con ellos o seguir manejando.","Elige la ruta según tus valores; los pasajeros pueden seguir, pero tú decides el rumbo."],1,"Metáfora de Hayes et al. (2012); usada en Hayes, Bissett, et al. (1999)."]
+];
+const bar=document.getElementById('bar'),grid=document.getElementById('grid'),ov=document.getElementById('ov'),fl=document.getElementById('flip'),fr=document.getElementById('fr'),rv=document.getElementById('rv');
+let f='all';
+const vis=()=>C.filter(c=>f==='all'||c[0]===f);
+function chips(){bar.innerHTML='';
+ const mk=(k,t,col)=>{const b=document.createElement('button');b.className='chip'+(k==='all'?' all':'')+(f===k?' on':'');if(col)b.style.setProperty('--col',col);b.textContent=t;b.onclick=()=>{f=k;chips();draw()};bar.appendChild(b)};
+ mk('all','Todas');for(const k in P)mk(k,P[k][0],P[k][1]);
+ const r=document.createElement('button');r.className='rand';r.textContent='🎲 Aleatorio';r.onclick=()=>show(vis()[Math.floor(Math.random()*vis().length)]);bar.appendChild(r)}
+function draw(){grid.innerHTML='';vis().forEach(c=>{const b=document.createElement('button');b.className='card';b.style.setProperty('--col',P[c[0]][1]);
+ b.innerHTML='<span class="tag"></span><span class="t"></span>';b.children[0].textContent=P[c[0]][0]+(c[4]?' ✚':'');b.children[1].textContent=c[1];b.onclick=()=>show(c);grid.appendChild(b)})}
+function show(c){fl.classList.remove('back');
+ [fr,rv].forEach(e=>e.style.setProperty('--col',P[c[0]][1]));
+ fr.innerHTML='<span class="tag"></span><span class="t"></span><span class="hint">Toca para ver cómo se hace ↻</span>';
+ fr.children[0].textContent=P[c[0]][0]+(c[4]?' ✚':'');fr.children[1].textContent=c[1];
+ rv.innerHTML='<div class="tag"></div><h2></h2><p></p><ol></ol><div class="note"></div>';
+ rv.children[0].textContent=P[c[0]][0];rv.children[1].textContent=c[1];rv.children[2].textContent=c[2];
+ c[3].forEach(s=>{const li=document.createElement('li');li.textContent=s;rv.children[3].appendChild(li)});
+ const n=rv.children[4];if(c[5])n.textContent=c[5];else n.remove();
+ ov.classList.add('open')}
+fl.onclick=()=>fl.classList.toggle('back');
+document.getElementById('cl').onclick=()=>ov.classList.remove('open');
+document.getElementById('rnd').onclick=()=>show(vis()[Math.floor(Math.random()*vis().length)]);
+ov.onclick=e=>{if(e.target===ov)ov.classList.remove('open')};
+chips();draw();
+</script>
+</body>
+</html>
